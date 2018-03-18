@@ -1,0 +1,17 @@
+﻿[dgCorp]
+Coordinates=370,40,50,33
+Visible=True
+
+[]
+Coordinates=0,0,82,33
+
+[absCorp]
+Coordinates=310,30,93,177
+
+[dgBranches]
+Visible=False
+Coordinates=112,1,73,33
+
+[absBranches]
+Coordinates=0,0,93,123
+

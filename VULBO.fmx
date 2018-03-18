@@ -1,13 +1,517 @@
 object VLBO: TVLBO
   Left = 0
   Top = 0
-  Caption = 'Form2'
-  ClientHeight = 480
-  ClientWidth = 640
+  Caption = 'Live Bindings Using Objects and Object Lists'
+  ClientHeight = 650
+  ClientWidth = 1028
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
   OnCreate = FormCreate
   OnDestroy = FormDestroy
   DesignerMasterStyle = 0
+  object pnCorp: TPanel
+    Align = MostTop
+    Margins.Left = 3.000000000000000000
+    Margins.Top = 3.000000000000000000
+    Margins.Right = 3.000000000000000000
+    Margins.Bottom = 3.000000000000000000
+    Position.X = 3.000000000000000000
+    Position.Y = 3.000000000000000000
+    Size.Width = 1022.000000000000000000
+    Size.Height = 94.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    object gplCorp: TGridPanelLayout
+      Align = Client
+      Size.Width = 1022.000000000000000000
+      Size.Height = 94.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      ColumnCollection = <
+        item
+          Value = 33.000000000000000000
+        end
+        item
+          Value = 33.000000000000000000
+        end
+        item
+          Value = 34.000000000000000000
+        end>
+      ControlCollection = <
+        item
+          Column = 0
+          Control = loCorpName
+          Row = 0
+        end
+        item
+          Column = 1
+          Control = loCorpStreetAddress
+          Row = 0
+        end
+        item
+          Column = 2
+          Control = loCorpCity
+          Row = 0
+        end
+        item
+          Column = 0
+          Control = loCorpStateProvince
+          Row = 1
+        end
+        item
+          Column = 1
+          Control = loCorpCountry
+          Row = 1
+        end
+        item
+          Column = 2
+          Control = loCorpMainPhone
+          Row = 1
+        end>
+      RowCollection = <
+        item
+          Value = 50.000000000000000000
+        end
+        item
+          Value = 50.000000000000000000
+        end
+        item
+          SizeStyle = Auto
+        end>
+      object loCorpName: TLayout
+        Align = Client
+        Anchors = []
+        Size.Width = 337.260009765625000000
+        Size.Height = 47.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        object Label1: TLabel
+          Align = MostTop
+          Margins.Left = 3.000000000000000000
+          Margins.Top = 2.000000000000000000
+          Margins.Right = 3.000000000000000000
+          Margins.Bottom = 2.000000000000000000
+          Position.X = 3.000000000000000000
+          Position.Y = 2.000000000000000000
+          Size.Width = 331.260009765625000000
+          Size.Height = 17.000000000000000000
+          Size.PlatformDefault = False
+          Text = 'Corporate Name'
+          TabOrder = 0
+        end
+        object lbCorpName: TLabel
+          Align = Client
+          StyledSettings = [Family, FontColor]
+          Margins.Left = 3.000000000000000000
+          Margins.Top = 2.000000000000000000
+          Margins.Right = 3.000000000000000000
+          Margins.Bottom = 2.000000000000000000
+          Size.Width = 331.260009765625000000
+          Size.Height = 22.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Font.Size = 14.000000000000000000
+          TextSettings.Font.StyleExt = {00070000000000000004000000}
+          Text = 
+            'ipsum mi vehicula purus, eu congue sapien orci eu est. Morbi bla' +
+            'ndit volutpat ante, non ultrices eros semper at. Fusce leo leo, ' +
+            'mollis id viverra a, pulvinar non diam. Praesent ornare mauris a' +
+            'c magna placerat rutrum.Curabitur volutpat urna fermentum sem ia' +
+            'culis ultrices. Maecenas adipiscing sapien risus, nec consectetu' +
+            'r arcu. Sed in arcu iaculis felis placerat elementum vitae porta' +
+            ' libero. Donec quis purus nisi, ac ultrices lorem. Proin vitae d' +
+            'iam id turpis rhoncus vestibulum scelerisque vel leo. Nulla quis' +
+            ' scelerisque sem. Etiam imperdiet lacinia nulla sit amet varius.' +
+            ' Aliquam in interdum mauris. Praesent placerat, libero vel biben' +
+            'dum malesuada, velit libero vestibulum erat, vel porttitor diam ' +
+            'urna et nibh. Nullam fringilla cursus tempor. Cras eleifend male' +
+            'suada lacus quis consectetur. Cum sociis natoque penatibus et ma' +
+            'gnis dis parturient montes, nascetur ridiculus mus. Sed vestibul' +
+            'um bibendum sodales.Mauris consectetur ipsum ac turpis aliquam i' +
+            'd placerat justo ornare. Donec nisl arcu, faucibus vel dictum vi' +
+            'tae, dapibus vel mauris. Sed lacinia, elit ut commodo tempor, ma' +
+            'uris felis consequat nisl, sit amet laoreet est quam et tortor. ' +
+            'Proin mattis interdum tempus. Etiam ac vehicula neque. Donec tem' +
+            'por, velit sit'
+          TabOrder = 1
+        end
+      end
+      object loCorpStreetAddress: TLayout
+        Align = Client
+        Size.Width = 337.260009765625000000
+        Size.Height = 47.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 1
+        object Label2: TLabel
+          Align = MostTop
+          Margins.Left = 3.000000000000000000
+          Margins.Top = 2.000000000000000000
+          Margins.Right = 3.000000000000000000
+          Margins.Bottom = 2.000000000000000000
+          Position.X = 3.000000000000000000
+          Position.Y = 2.000000000000000000
+          Size.Width = 331.260009765625000000
+          Size.Height = 17.000000000000000000
+          Size.PlatformDefault = False
+          Text = 'Corporte Street Address'
+          TabOrder = 0
+        end
+        object lbCorpStreetAddress: TLabel
+          Align = Client
+          StyledSettings = [Family, FontColor]
+          Margins.Left = 3.000000000000000000
+          Margins.Top = 2.000000000000000000
+          Margins.Right = 3.000000000000000000
+          Margins.Bottom = 2.000000000000000000
+          Size.Width = 331.260009765625000000
+          Size.Height = 22.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Font.Size = 14.000000000000000000
+          TextSettings.Font.StyleExt = {00070000000000000004000000}
+          Text = 'Darkgoldenrod'
+          TabOrder = 1
+        end
+      end
+      object loCorpCity: TLayout
+        Align = Client
+        Size.Width = 347.479980468750000000
+        Size.Height = 47.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 2
+        object Label3: TLabel
+          Align = MostTop
+          Margins.Left = 3.000000000000000000
+          Margins.Top = 2.000000000000000000
+          Margins.Right = 3.000000000000000000
+          Margins.Bottom = 2.000000000000000000
+          Position.X = 3.000000000000000000
+          Position.Y = 2.000000000000000000
+          Size.Width = 341.479980468750000000
+          Size.Height = 17.000000000000000000
+          Size.PlatformDefault = False
+          Text = 'Corporate City'
+          TabOrder = 0
+        end
+        object lbCorpCity: TLabel
+          Align = Client
+          StyledSettings = [Family, FontColor]
+          Margins.Left = 3.000000000000000000
+          Margins.Top = 2.000000000000000000
+          Margins.Right = 3.000000000000000000
+          Margins.Bottom = 2.000000000000000000
+          Size.Width = 341.479980468750000000
+          Size.Height = 22.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Font.Size = 14.000000000000000000
+          TextSettings.Font.StyleExt = {00070000000000000004000000}
+          Text = 
+            'ipsum mi vehicula purus, eu congue sapien orci eu est. Morbi bla' +
+            'ndit volutpat ante, non ultrices eros semper at. Fusce leo leo, ' +
+            'mollis id viverra a, pulvinar non diam. Praesent ornare mauris a' +
+            'c magna placerat rutrum.Curabitur volutpat urna fermentum sem ia' +
+            'culis ultrices. Maecenas adipiscing sapien risus, nec consectetu' +
+            'r arcu. Sed in arcu iaculis felis placerat elementum vitae porta' +
+            ' libero. Donec quis purus nisi, ac ultrices lorem. Proin vitae d' +
+            'iam id turpis rhoncus vestibulum scelerisque vel leo. Nulla quis' +
+            ' scelerisque sem. Etiam imperdiet lacinia nulla sit amet varius.' +
+            ' Aliquam in interdum mauris. Praesent placerat, libero vel biben' +
+            'dum malesuada, velit libero vestibulum erat, vel porttitor diam ' +
+            'urna et nibh. Nullam fringilla cursus tempor. Cras eleifend male' +
+            'suada lacus quis consectetur. Cum sociis natoque penatibus et ma' +
+            'gnis dis parturient montes, nascetur ridiculus mus. Sed vestibul' +
+            'um bibendum sodales.Mauris consectetur ipsum ac turpis aliquam i' +
+            'd placerat justo ornare. Donec nisl arcu, faucibus vel dictum vi' +
+            'tae, dapibus vel mauris. Sed lacinia, elit ut commodo tempor, ma' +
+            'uris felis consequat nisl, sit amet laoreet est quam et tortor. ' +
+            'Proin mattis interdum tempus. Etiam ac vehicula neque. Donec tem' +
+            'por, velit sit'
+          TabOrder = 1
+        end
+      end
+      object loCorpStateProvince: TLayout
+        Align = Client
+        Size.Width = 337.260009765625000000
+        Size.Height = 47.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 3
+        object Label4: TLabel
+          Align = MostTop
+          Margins.Left = 3.000000000000000000
+          Margins.Top = 2.000000000000000000
+          Margins.Right = 3.000000000000000000
+          Margins.Bottom = 2.000000000000000000
+          Position.X = 3.000000000000000000
+          Position.Y = 2.000000000000000000
+          Size.Width = 331.260009765625000000
+          Size.Height = 17.000000000000000000
+          Size.PlatformDefault = False
+          Text = 'Corporate State/Province'
+          TabOrder = 0
+        end
+        object lbCorpStateProvince: TLabel
+          Align = Client
+          StyledSettings = [Family, FontColor]
+          Margins.Left = 3.000000000000000000
+          Margins.Top = 2.000000000000000000
+          Margins.Right = 3.000000000000000000
+          Margins.Bottom = 2.000000000000000000
+          Size.Width = 331.260009765625000000
+          Size.Height = 22.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Font.Size = 14.000000000000000000
+          TextSettings.Font.StyleExt = {00070000000000000004000000}
+          Text = 'Bitmap28'
+          TabOrder = 1
+        end
+      end
+      object loCorpCountry: TLayout
+        Align = Client
+        Size.Width = 337.260009765625000000
+        Size.Height = 47.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 4
+        object Label5: TLabel
+          Align = MostTop
+          Margins.Left = 3.000000000000000000
+          Margins.Top = 2.000000000000000000
+          Margins.Right = 3.000000000000000000
+          Margins.Bottom = 2.000000000000000000
+          Position.X = 3.000000000000000000
+          Position.Y = 2.000000000000000000
+          Size.Width = 331.260009765625000000
+          Size.Height = 17.000000000000000000
+          Size.PlatformDefault = False
+          Text = 'Corporate Country'
+          TabOrder = 0
+        end
+        object lbCorpCountry: TLabel
+          Align = Client
+          StyledSettings = [Family, FontColor]
+          Margins.Left = 3.000000000000000000
+          Margins.Top = 2.000000000000000000
+          Margins.Right = 3.000000000000000000
+          Margins.Bottom = 2.000000000000000000
+          Size.Width = 331.260009765625000000
+          Size.Height = 22.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Font.Size = 14.000000000000000000
+          TextSettings.Font.StyleExt = {00070000000000000004000000}
+          Text = 
+            'ipsum mi vehicula purus, eu congue sapien orci eu est. Morbi bla' +
+            'ndit volutpat ante, non ultrices eros semper at. Fusce leo leo, ' +
+            'mollis id viverra a, pulvinar non diam. Praesent ornare mauris a' +
+            'c magna placerat rutrum.Curabitur volutpat urna fermentum sem ia' +
+            'culis ultrices. Maecenas adipiscing sapien risus, nec consectetu' +
+            'r arcu. Sed in arcu iaculis felis placerat elementum vitae porta' +
+            ' libero. Donec quis purus nisi, ac ultrices lorem. Proin vitae d' +
+            'iam id turpis rhoncus vestibulum scelerisque vel leo. Nulla quis' +
+            ' scelerisque sem. Etiam imperdiet lacinia nulla sit amet varius.' +
+            ' Aliquam in interdum mauris. Praesent placerat, libero vel biben' +
+            'dum malesuada, velit libero vestibulum erat, vel porttitor diam ' +
+            'urna et nibh. Nullam fringilla cursus tempor. Cras eleifend male' +
+            'suada lacus quis consectetur. Cum sociis natoque penatibus et ma' +
+            'gnis dis parturient montes, nascetur ridiculus mus. Sed vestibul' +
+            'um bibendum sodales.Mauris consectetur ipsum ac turpis aliquam i' +
+            'd placerat justo ornare. Donec nisl arcu, faucibus vel dictum vi' +
+            'tae, dapibus vel mauris. Sed lacinia, elit ut commodo tempor, ma' +
+            'uris felis consequat nisl, sit amet laoreet est quam et tortor. ' +
+            'Proin mattis interdum tempus. Etiam ac vehicula neque. Donec tem' +
+            'por, velit sit'
+          TabOrder = 1
+        end
+      end
+      object loCorpMainPhone: TLayout
+        Align = Client
+        Size.Width = 347.479980468750000000
+        Size.Height = 47.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 5
+        object Label6: TLabel
+          Align = MostTop
+          Margins.Left = 3.000000000000000000
+          Margins.Top = 2.000000000000000000
+          Margins.Right = 3.000000000000000000
+          Margins.Bottom = 2.000000000000000000
+          Position.X = 3.000000000000000000
+          Position.Y = 2.000000000000000000
+          Size.Width = 341.479980468750000000
+          Size.Height = 17.000000000000000000
+          Size.PlatformDefault = False
+          Text = 'Corporate Main Phone Number'
+          TabOrder = 0
+        end
+        object lbCorpMainPhone: TLabel
+          Align = Client
+          StyledSettings = [Family, FontColor]
+          Margins.Left = 3.000000000000000000
+          Margins.Top = 2.000000000000000000
+          Margins.Right = 3.000000000000000000
+          Margins.Bottom = 2.000000000000000000
+          Size.Width = 341.479980468750000000
+          Size.Height = 22.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Font.Size = 14.000000000000000000
+          TextSettings.Font.StyleExt = {00070000000000000004000000}
+          Text = '11/1/2018 12:58:00 AM'
+          TabOrder = 1
+        end
+      end
+    end
+  end
+  object Layout1: TLayout
+    Align = MostLeft
+    Position.Y = 100.000000000000000000
+    Size.Width = 505.000000000000000000
+    Size.Height = 550.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 2
+    object lvBranches: TListView
+      ItemAppearanceClassName = 'TDynamicAppearance'
+      ItemEditAppearanceClassName = 'TDynamicAppearance'
+      HeaderAppearanceClassName = 'TListHeaderObjects'
+      FooterAppearanceClassName = 'TListHeaderObjects'
+      ItemIndex = 1
+      Align = Client
+      Margins.Left = 3.000000000000000000
+      Margins.Top = 3.000000000000000000
+      Margins.Right = 3.000000000000000000
+      Margins.Bottom = 3.000000000000000000
+      Size.Width = 499.000000000000000000
+      Size.Height = 544.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      ItemAppearanceObjects.ItemObjects.ObjectsCollection = <
+        item
+          AppearanceObjectName = 'Text1'
+          AppearanceClassName = 'TTextObjectAppearance'
+          Appearance.Width = 470.000000000000000000
+          Appearance.Height = 25.000000000000000000
+        end
+        item
+          AppearanceObjectName = 'Text2'
+          AppearanceClassName = 'TTextObjectAppearance'
+          Appearance.Width = 471.000000000000000000
+          Appearance.Height = 19.000000000000000000
+          Appearance.PlaceOffset.Y = 24.000000000000000000
+        end>
+      ItemAppearanceObjects.ItemEditObjects.ObjectsCollection = <
+        item
+          AppearanceObjectName = 'Text1'
+          AppearanceClassName = 'TTextObjectAppearance'
+          Appearance.Width = 478.000000000000000000
+          Appearance.Height = 25.000000000000000000
+        end>
+      ItemAppearanceObjects.HeaderObjects.Text.Font.Size = 18.000000000000000000
+      ItemAppearanceObjects.HeaderObjects.Text.Font.StyleExt = {00070000000000000004000000}
+    end
+  end
+  object Splitter1: TSplitter
+    Align = Left
+    Cursor = crHSplit
+    MinSize = 20.000000000000000000
+    Position.X = 505.000000000000000000
+    Position.Y = 100.000000000000000000
+    Size.Width = 4.000000000000000000
+    Size.Height = 550.000000000000000000
+    Size.PlatformDefault = False
+  end
+  object Layout2: TLayout
+    Align = Client
+    Size.Width = 519.000000000000000000
+    Size.Height = 550.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 4
+    object lvEmployees: TListView
+      ItemAppearanceClassName = 'TListItemAppearance'
+      ItemEditAppearanceClassName = 'TListItemShowCheckAppearance'
+      HeaderAppearanceClassName = 'TListHeaderObjects'
+      FooterAppearanceClassName = 'TListHeaderObjects'
+      ItemIndex = 0
+      Align = Client
+      Margins.Left = 3.000000000000000000
+      Margins.Top = 3.000000000000000000
+      Margins.Right = 3.000000000000000000
+      Margins.Bottom = 3.000000000000000000
+      Size.Width = 513.000000000000000000
+      Size.Height = 544.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      ItemAppearanceObjects.ItemObjects.Text.Font.Size = 16.000000000000000000
+      ItemAppearanceObjects.ItemObjects.Text.Font.StyleExt = {00070000000000000004000000}
+    end
+  end
+  object BindingsList1: TBindingsList
+    Methods = <>
+    OutputConverters = <>
+    Left = 20
+    Top = 597
+    object LinkPropertyToFieldText: TLinkPropertyToField
+      Category = 'Quick Bindings'
+      DataSource = MDLBO.absCorp
+      FieldName = 'CorpName'
+      Component = lbCorpName
+      ComponentProperty = 'Text'
+    end
+    object LinkPropertyToFieldText2: TLinkPropertyToField
+      Category = 'Quick Bindings'
+      DataSource = MDLBO.absCorp
+      FieldName = 'CorpStreetAddress'
+      Component = lbCorpStreetAddress
+      ComponentProperty = 'Text'
+    end
+    object LinkPropertyToFieldText3: TLinkPropertyToField
+      Category = 'Quick Bindings'
+      DataSource = MDLBO.absCorp
+      FieldName = 'CorpCity'
+      Component = lbCorpCity
+      ComponentProperty = 'Text'
+    end
+    object LinkPropertyToFieldText4: TLinkPropertyToField
+      Category = 'Quick Bindings'
+      DataSource = MDLBO.absCorp
+      FieldName = 'CorpStateProvince'
+      Component = lbCorpStateProvince
+      ComponentProperty = 'Text'
+    end
+    object LinkPropertyToFieldText5: TLinkPropertyToField
+      Category = 'Quick Bindings'
+      DataSource = MDLBO.absCorp
+      FieldName = 'CorpCountry'
+      Component = lbCorpCountry
+      ComponentProperty = 'Text'
+    end
+    object LinkPropertyToFieldText6: TLinkPropertyToField
+      Category = 'Quick Bindings'
+      DataSource = MDLBO.absCorp
+      FieldName = 'CorpMainPhone'
+      Component = lbCorpMainPhone
+      ComponentProperty = 'Text'
+    end
+    object LinkListControlToField1: TLinkListControlToField
+      Category = 'Quick Bindings'
+      DataSource = MDLBO.absBranches
+      Control = lvBranches
+      FillExpressions = <
+        item
+          SourceMemberName = 'BranchMainPhone'
+          ControlMemberName = 'Text2'
+        end
+        item
+          SourceMemberName = 'BranchFullAddress'
+          ControlMemberName = 'Text1'
+        end>
+      FillHeaderExpressions = <>
+      FillHeaderFieldName = 'BranchName'
+      FillBreakGroups = <>
+    end
+    object LinkListControlToField2: TLinkListControlToField
+      Category = 'Quick Bindings'
+      DataSource = MDLBO.absEmployees
+      FieldName = 'EmpFullName'
+      Control = lvEmployees
+      FillExpressions = <>
+      FillHeaderExpressions = <>
+      FillBreakGroups = <>
+    end
+  end
 end

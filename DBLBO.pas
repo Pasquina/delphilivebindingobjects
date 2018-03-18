@@ -3,7 +3,7 @@ unit DBLBO;
 interface
 
 uses
-  Data.Bind.ObjectScope, System.Generics.Collections;
+  Data.Bind.ObjectScope, System.Generics.Collections, System.SysUtils;
 
 type
   TPersGender = (pgFemale, pgMale, pgUnknown);
@@ -83,6 +83,7 @@ type
     procedure SetBranchName(const Value: String);
     procedure SetBranchStateProvince(const Value: String);
     procedure SetBranchStreetAddress(const Value: String);
+    function GetBranchFullAddress: String;
   protected
   public
     constructor Create(
@@ -111,6 +112,8 @@ type
     property BranchMainPhone: String
       read FBranchMainPhone
       write SetBranchMainPhone;
+    property BranchFullAddress: String
+      read GetBranchFullAddress;
     property BranchEmployees: TObjectList<TEmployee>
       read FBranchEmployees
       write SetBranchEmployees;
@@ -128,12 +131,22 @@ type
     function GetEmpFullName: String;
   protected
   public
-    constructor Create;
+    constructor Create(
+      const AEmpFirstName: String;
+      const AEmpMiddleName: String;
+      const AEmpSurname: string);
     destructor Destroy; override;
-    property EmpFirstName: String read FEmpFirstName write SetEmpFirstName;
-    property EmpMiddleName: String read FEmpMiddleName write SetEmpMiddleName;
-    property EmpSurname: String read FEmpSurname write SetEmpSurname;
-    property EmpFullName: String read GetEmpFullName;
+    property EmpFirstName: String
+      read FEmpFirstName
+      write SetEmpFirstName;
+    property EmpMiddleName: String
+      read FEmpMiddleName
+      write SetEmpMiddleName;
+    property EmpSurname: String
+      read FEmpSurname
+      write SetEmpSurname;
+    property EmpFullName: String
+      read GetEmpFullName;
   end;
 
 implementation
@@ -148,6 +161,7 @@ constructor TCorp.Create(
   const ACorpCountry: String;
   const ACorpMainPhone: String);
 begin
+  inherited Create();
   CorpName := ACorpName;
   CorpStreetAddress := ACorpStreetAddress;
   CorpCity := ACorpCity;
@@ -204,13 +218,14 @@ end;
 { TBranch }
 
 constructor TBranch.Create(
-      const ABranchName: String;
-      const ABranchStreetAddress: String;
-      const ABranchCity: String;
-      const ABranchStateProvince: String;
-      const ABranchCountry: String;
-      const ABranchMainPhone: String);
+  const ABranchName: String;
+  const ABranchStreetAddress: String;
+  const ABranchCity: String;
+  const ABranchStateProvince: String;
+  const ABranchCountry: String;
+  const ABranchMainPhone: String);
 begin
+  inherited Create();
   BranchName := ABranchName;
   BranchStreetAddress := ABranchStreetAddress;
   BranchCity := ABranchCity;
@@ -218,12 +233,61 @@ begin
   BranchCountry := ABranchCountry;
   BranchMainPhone := ABranchMainPhone;
   BranchEmployees := TObjectList<TEmployee>.Create;
+  if BranchName.CompareText(BranchName, 'Cincinnati') = 0 then
+    begin
+      BranchEmployees.Add(TEmployee.Create('Pyotr', 'Ilyich', 'Tchaikovsky'));
+      BranchEmployees.Add(TEmployee.Create('Wolfgang', 'Amadeus', 'Mozart'));
+      BranchEmployees.Add(TEmployee.Create('Giuseppi', '', 'Verdi'));
+      Exit;
+    end;
+  if BranchName.CompareText(BranchName, 'Phoenix') = 0 then
+    begin
+      BranchEmployees.Add(TEmployee.Create('Emily', 'Elizabeth', 'Dickenson'));
+      BranchEmployees.Add(TEmployee.Create('Jane', '', 'Austen'));
+      BranchEmployees.Add(TEmployee.Create('Joanne', '', 'Rowling'));
+      Exit;
+    end;
+  if BranchName.CompareText(BranchName, 'Toronto') = 0 then
+    begin
+      BranchEmployees.Add(TEmployee.Create('Michelangelo', 'di Ludovico', 'Buonarroti-Simoni'));
+      BranchEmployees.Add(TEmployee.Create('Leonardo', '', ''));
+      BranchEmployees.Add(TEmployee.Create('Antonio', '', 'Canova'));
+      Exit;
+    end;
 end;
 
 destructor TBranch.Destroy;
 begin
   BranchEmployees.Free;
   inherited;
+end;
+
+function TBranch.GetBranchFullAddress: String;
+var
+  LSep: String;
+begin
+  LSep := '';
+  Result := '';
+  if BranchStreetAddress <> '' then
+    begin
+      Result := Result + LSep + BranchStreetAddress;
+      LSep := ' ';
+    end;
+  if BranchCity <> ' ' then
+    begin
+      Result := Result + LSep + BranchCity;
+      LSep := ' ';
+    end;
+  if BranchStateProvince <> '' then
+    begin
+      Result := Result + LSep + BranchStateProvince;
+      LSep := ' ';
+    end;
+  if BranchCountry <> '' then
+    begin
+      Result := Result + LSep + BranchCountry;
+      LSep := ' ';
+    end;
 end;
 
 procedure TBranch.SetBranchCity(const Value: String);
@@ -263,14 +327,19 @@ end;
 
 { TEmployee }
 
-constructor TEmployee.Create;
+constructor TEmployee.Create(
+  const AEmpFirstName: String;
+  const AEmpMiddleName: String;
+  const AEmpSurname: string);
 begin
-
+  inherited Create();
+  EmpFirstName := AEmpFirstName;
+  EmpMiddleName := AEmpMiddleName;
+  EmpSurname := AEmpSurname;
 end;
 
 destructor TEmployee.Destroy;
 begin
-
   inherited;
 end;
 
