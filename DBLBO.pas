@@ -12,9 +12,9 @@ type
   TBranch = class;
   TEmployee = class;
 
-  CorpObjectBSA = TObjectBindSourceAdapter<TCorp>;
-  BranchListBSA = TListBindSourceAdapter<TBranch>;
-  EmployeeListBSA = TListBindSourceAdapter<TEmployee>;
+  CorpObjectBSWrapper = TObjectBindSourceAdapter<TCorp>;
+  BranchListBSWrapper = TListBindSourceAdapter<TBranch>;
+  EmployeeListBSWrapper = TListBindSourceAdapter<TEmployee>;
 
   TCorp = class(TObject)
   strict private
@@ -76,6 +76,7 @@ type
     FBranchStreetAddress: String;
     FBranchName: String;
     FBranchMainPhone: String;
+    class var FBranchSerial: integer;
     procedure SetBranchCity(const Value: String);
     procedure SetBranchCountry(const Value: String);
     procedure SetBranchEmployees(const Value: TObjectList<TEmployee>);
@@ -84,6 +85,8 @@ type
     procedure SetBranchStateProvince(const Value: String);
     procedure SetBranchStreetAddress(const Value: String);
     function GetBranchFullAddress: String;
+    class procedure SetBranchSerial(const Value: integer); static;
+    class property BranchSerial: integer read FBranchSerial write SetBranchSerial;
   protected
   public
     constructor Create(
@@ -92,7 +95,8 @@ type
       const ABranchCity: String;
       const ABranchStateProvince: String;
       const ABranchCountry: String;
-      const ABranchMainPhone: String);
+      const ABranchMainPhone: String); overload;
+    constructor Create; overload;
     destructor Destroy; override;
     property BranchName: String
       read FBranchName
@@ -125,16 +129,20 @@ type
     FEmpMiddleName: String;
     FEmpFirstName: String;
     FEmpSurname: String;
+    class var FEmployeeSerial: integer;
     procedure SetEmpFirstName(const Value: String);
     procedure SetEmpMiddleName(const Value: String);
     procedure SetEmpSurname(const Value: String);
     function GetEmpFullName: String;
+    class procedure SetEmployeeSerial(const Value: integer); static;
+    class property EmployeeSerial: integer read FEmployeeSerial write SetEmployeeSerial;
   protected
   public
     constructor Create(
       const AEmpFirstName: String;
       const AEmpMiddleName: String;
-      const AEmpSurname: string);
+      const AEmpSurname: string); overload;
+    constructor Create; overload;
     destructor Destroy; override;
     property EmpFirstName: String
       read FEmpFirstName
@@ -256,6 +264,18 @@ begin
     end;
 end;
 
+constructor TBranch.Create;
+begin
+  BranchSerial := BranchSerial + 1;
+  BranchName := Format('Auto Branch %d', [BranchSerial]);
+  BranchStreetAddress := 'Auto Branch Address';
+  BranchCity := 'Auto Branch City';
+  BranchStateProvince := 'Auto Branch State/Province';
+  BranchCountry := 'Auto Branch Country';
+  BranchMainPhone := 'Auto Branch Main Phone';
+  BranchEmployees := TObjectList<TEmployee>.Create;
+end;
+
 destructor TBranch.Destroy;
 begin
   BranchEmployees.Free;
@@ -315,6 +335,11 @@ begin
   FBranchName := Value;
 end;
 
+class procedure TBranch.SetBranchSerial(const Value: integer);
+begin
+  FBranchSerial := Value;
+end;
+
 procedure TBranch.SetBranchStateProvince(const Value: String);
 begin
   FBranchStateProvince := Value;
@@ -336,6 +361,14 @@ begin
   EmpFirstName := AEmpFirstName;
   EmpMiddleName := AEmpMiddleName;
   EmpSurname := AEmpSurname;
+end;
+
+constructor TEmployee.Create;
+begin
+  EmployeeSerial := EmployeeSerial + 1;
+  EmpFirstName := 'First Name';
+  EmpMiddleName := 'Middle Name';
+  EmpSurname := Format('Surname Serial %d', [EmployeeSerial]);
 end;
 
 destructor TEmployee.Destroy;
@@ -369,6 +402,11 @@ end;
 procedure TEmployee.SetEmpFirstName(const Value: String);
 begin
   FEmpFirstName := Value;
+end;
+
+class procedure TEmployee.SetEmployeeSerial(const Value: integer);
+begin
+  FEmployeeSerial := Value;
 end;
 
 procedure TEmployee.SetEmpMiddleName(const Value: String);

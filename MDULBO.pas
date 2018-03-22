@@ -29,24 +29,24 @@ type
   private
     { Private declarations }
     FCorp: TCorp;
-    FCorpBinder: CorpObjectBSA;
-    FBranchBinder: BranchListBSA;
-    FEmployeeBinder: EmployeeListBSA;
+    FCorpBinder: CorpObjectBSWrapper;
+    FBranchBinder: BranchListBSWrapper;
+    FEmployeeBinder: EmployeeListBSWrapper;
     procedure SetCorp(const Value: TCorp);
-    procedure SetCorpBinder(const Value: CorpObjectBSA);
-    procedure SetBranchBinder(const Value: BranchListBSA);
-    procedure SetEmployeeBinder(const Value: EmployeeListBSA);
+    procedure SetCorpBinder(const Value: CorpObjectBSWrapper);
+    procedure SetBranchBinder(const Value: BranchListBSWrapper);
+    procedure SetEmployeeBinder(const Value: EmployeeListBSWrapper);
     procedure AfterBranchScroll(ABindSourceAdapter: TBindSourceAdapter);
     property Corp: TCorp
       read FCorp
       write SetCorp;
-    property CorpBinder: CorpObjectBSA
+    property CorpWrapper: CorpObjectBSWrapper
       read FCorpBinder
       write SetCorpBinder;
-    property BranchBinder: BranchListBSA
+    property BranchWrapper: BranchListBSWrapper
       read FBranchBinder
       write SetBranchBinder;
-    property EmployeeBinder: EmployeeListBSA
+    property EmployeeWrapper: EmployeeListBSWrapper
       read FEmployeeBinder
       write SetEmployeeBinder;
   public
@@ -68,36 +68,38 @@ procedure TMDLBO.absBranchesCreateAdapter(
   Sender: TObject;
   var ABindSourceAdapter: TBindSourceAdapter);
 begin
-  BranchBinder := BranchListBSA.Create(
+  BranchWrapper := BranchListBSWrapper.Create(
     self,
     Corp.CorpBranches,
     False);
 
-  BranchBinder.AfterScroll := AfterBranchScroll;
+  BranchWrapper.AfterScroll := AfterBranchScroll;
+  BranchWrapper.AfterDelete := AfterBranchScroll;
+  BranchWrapper.AfterInsert := AfterBranchScroll;
 
-  ABindSourceAdapter := BranchBinder;
+  ABindSourceAdapter := BranchWrapper;
 end;
 
 procedure TMDLBO.absCorpCreateAdapter(
   Sender: TObject;
   var ABindSourceAdapter: TBindSourceAdapter);
 begin
-  CorpBinder := CorpObjectBSA.Create(
+  CorpWrapper := CorpObjectBSWrapper.Create(
     self,
     Corp,
     False);
-  ABindSourceAdapter := CorpBinder;
+  ABindSourceAdapter := CorpWrapper;
 end;
 
 procedure TMDLBO.absEmployeesCreateAdapter(
   Sender: TObject;
   var ABindSourceAdapter: TBindSourceAdapter);
 begin
-  EmployeeBinder := EmployeeListBSA.Create(
+  EmployeeWrapper := EmployeeListBSWrapper.Create(
     self,
-    TBranch(BranchBinder.Current).BranchEmployees,
+    TBranch(BranchWrapper.Current).BranchEmployees,
     False);
-  ABindSourceAdapter := EmployeeBinder;
+  ABindSourceAdapter := EmployeeWrapper;
 end;
 
 procedure TMDLBO.AfterBranchScroll(ABindSourceAdapter: TBindSourceAdapter);
@@ -105,12 +107,21 @@ var
   LBranch: TBranch;
 begin
   LBranch := TBranch(TListBindSourceAdapter(ABindSourceAdapter).Current);
-  EmployeeBinder.SetList(
-    LBranch.BranchEmployees,
-    False);
+  if Assigned(LBranch) then
+    begin
+      EmployeeWrapper.SetList(
+        LBranch.BranchEmployees,
+        False);
 
-  EmployeeBinder.First;
-  EmployeeBinder.Active := True;
+      EmployeeWrapper.First;
+      EmployeeWrapper.Active := True;
+    end
+  else
+    begin
+      EmployeeWrapper.SetList(
+        nil,
+        False);
+    end;
 end;
 
 constructor TMDLBO.Create(AOwner: TComponent);
@@ -140,7 +151,7 @@ begin
   Result := FMDLBO;
 end;
 
-procedure TMDLBO.SetBranchBinder(const Value: BranchListBSA);
+procedure TMDLBO.SetBranchBinder(const Value: BranchListBSWrapper);
 begin
   FBranchBinder := Value;
 end;
@@ -150,12 +161,12 @@ begin
   FCorp := Value;
 end;
 
-procedure TMDLBO.SetCorpBinder(const Value: CorpObjectBSA);
+procedure TMDLBO.SetCorpBinder(const Value: CorpObjectBSWrapper);
 begin
   FCorpBinder := Value;
 end;
 
-procedure TMDLBO.SetEmployeeBinder(const Value: EmployeeListBSA);
+procedure TMDLBO.SetEmployeeBinder(const Value: EmployeeListBSWrapper);
 begin
   FEmployeeBinder := Value;
 end;

@@ -153,7 +153,7 @@ object VLBO: TVLBO
           Size.Width = 331.260009765625000000
           Size.Height = 17.000000000000000000
           Size.PlatformDefault = False
-          Text = 'Corporte Street Address'
+          Text = 'Corporate Street Address'
           TabOrder = 0
         end
         object lbCorpStreetAddress: TLabel
@@ -370,29 +370,39 @@ object VLBO: TVLBO
       ItemEditAppearanceClassName = 'TDynamicAppearance'
       HeaderAppearanceClassName = 'TListHeaderObjects'
       FooterAppearanceClassName = 'TListHeaderObjects'
-      ItemIndex = 1
+      ItemIndex = 0
       Align = Client
       Margins.Left = 3.000000000000000000
       Margins.Top = 3.000000000000000000
       Margins.Right = 3.000000000000000000
       Margins.Bottom = 3.000000000000000000
       Size.Width = 499.000000000000000000
-      Size.Height = 544.000000000000000000
+      Size.Height = 519.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 0
+      ItemAppearance.ItemHeight = 63
       ItemAppearanceObjects.ItemObjects.ObjectsCollection = <
         item
           AppearanceObjectName = 'Text1'
           AppearanceClassName = 'TTextObjectAppearance'
-          Appearance.Width = 470.000000000000000000
+          Appearance.Font.Size = 18.000000000000000000
+          Appearance.Font.StyleExt = {00070000000000000004000000}
+          Appearance.Width = 479.000000000000000000
           Appearance.Height = 25.000000000000000000
         end
         item
           AppearanceObjectName = 'Text2'
           AppearanceClassName = 'TTextObjectAppearance'
-          Appearance.Width = 471.000000000000000000
+          Appearance.Width = 479.000000000000000000
           Appearance.Height = 19.000000000000000000
-          Appearance.PlaceOffset.Y = 24.000000000000000000
+          Appearance.PlaceOffset.Y = 25.000000000000000000
+        end
+        item
+          AppearanceObjectName = 'Text3'
+          AppearanceClassName = 'TTextObjectAppearance'
+          Appearance.Width = 478.000000000000000000
+          Appearance.Height = 19.000000000000000000
+          Appearance.PlaceOffset.Y = 44.000000000000000000
         end>
       ItemAppearanceObjects.ItemEditObjects.ObjectsCollection = <
         item
@@ -401,8 +411,16 @@ object VLBO: TVLBO
           Appearance.Width = 478.000000000000000000
           Appearance.Height = 25.000000000000000000
         end>
-      ItemAppearanceObjects.HeaderObjects.Text.Font.Size = 18.000000000000000000
-      ItemAppearanceObjects.HeaderObjects.Text.Font.StyleExt = {00070000000000000004000000}
+    end
+    object navBranches: TBindNavigator
+      Align = MostTop
+      Size.Width = 505.000000000000000000
+      Size.Height = 25.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 1
+      DataSource = MDLBO.absBranches
+      xRadius = 4.000000000000000000
+      yRadius = 4.000000000000000000
     end
   end
   object Splitter1: TSplitter
@@ -433,11 +451,21 @@ object VLBO: TVLBO
       Margins.Right = 3.000000000000000000
       Margins.Bottom = 3.000000000000000000
       Size.Width = 513.000000000000000000
-      Size.Height = 544.000000000000000000
+      Size.Height = 519.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 0
       ItemAppearanceObjects.ItemObjects.Text.Font.Size = 16.000000000000000000
       ItemAppearanceObjects.ItemObjects.Text.Font.StyleExt = {00070000000000000004000000}
+    end
+    object navEmloyee: TBindNavigator
+      Align = MostTop
+      Size.Width = 519.000000000000000000
+      Size.Height = 25.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 1
+      DataSource = MDLBO.absEmployees
+      xRadius = 4.000000000000000000
+      yRadius = 4.000000000000000000
     end
   end
   object BindingsList1: TBindingsList
@@ -487,29 +515,32 @@ object VLBO: TVLBO
       Component = lbCorpMainPhone
       ComponentProperty = 'Text'
     end
-    object LinkListControlToField1: TLinkListControlToField
-      Category = 'Quick Bindings'
-      DataSource = MDLBO.absBranches
-      Control = lvBranches
-      FillExpressions = <
-        item
-          SourceMemberName = 'BranchMainPhone'
-          ControlMemberName = 'Text2'
-        end
-        item
-          SourceMemberName = 'BranchFullAddress'
-          ControlMemberName = 'Text1'
-        end>
-      FillHeaderExpressions = <>
-      FillHeaderFieldName = 'BranchName'
-      FillBreakGroups = <>
-    end
     object LinkListControlToField2: TLinkListControlToField
       Category = 'Quick Bindings'
       DataSource = MDLBO.absEmployees
       FieldName = 'EmpFullName'
       Control = lvEmployees
       FillExpressions = <>
+      FillHeaderExpressions = <>
+      FillBreakGroups = <>
+    end
+    object LinkListControlToField1: TLinkListControlToField
+      Category = 'Quick Bindings'
+      DataSource = MDLBO.absBranches
+      Control = lvBranches
+      FillExpressions = <
+        item
+          SourceMemberName = 'BranchName'
+          ControlMemberName = 'Text1'
+        end
+        item
+          SourceMemberName = 'BranchFullAddress'
+          ControlMemberName = 'Text2'
+        end
+        item
+          SourceMemberName = 'BranchMainPhone'
+          ControlMemberName = 'Text3'
+        end>
       FillHeaderExpressions = <>
       FillBreakGroups = <>
     end
