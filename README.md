@@ -33,4 +33,4 @@ The program is intended to be a Windows desktop application. Hence, it has not b
 
 The source code of the program contains extensive comments, perhaps to the point of obsession. However, the intention was to convey substantial explanations related to the structure and specific coding used.
 
-For more comprehensive explanations, see the blog entry at {Link to be posted when blog entry is complete.}.
+For more comprehensive explanations, see the blog entry at the Github website link for this repository. (Initially not specified, but will be supplied when available.)
