@@ -1,7 +1,7 @@
 object MDLBO: TMDLBO
   OldCreateOrder = False
-  Height = 370
-  Width = 757
+  Height = 174
+  Width = 281
   object dgCorp: TDataGeneratorAdapter
     FieldDefs = <
       item
@@ -39,8 +39,8 @@ object MDLBO: TMDLBO
     AutoPost = False
     RecordCount = 1
     Options = [loptAllowInsert, loptAllowDelete, loptAllowModify]
-    Left = 32
-    Top = 304
+    Left = 40
+    Top = 24
   end
   object absCorp: TAdapterBindSource
     AutoActivate = True
@@ -48,7 +48,7 @@ object MDLBO: TMDLBO
     Adapter = dgCorp
     ScopeMappings = <>
     Left = 40
-    Top = 232
+    Top = 88
   end
   object dgBranches: TDataGeneratorAdapter
     FieldDefs = <
@@ -70,16 +70,16 @@ object MDLBO: TMDLBO
     Active = True
     AutoPost = False
     Options = [loptAllowInsert, loptAllowDelete, loptAllowModify]
-    Left = 112
-    Top = 304
+    Left = 120
+    Top = 24
   end
   object absBranches: TAdapterBindSource
     AutoActivate = True
     OnCreateAdapter = absBranchesCreateAdapter
     Adapter = dgBranches
     ScopeMappings = <>
-    Left = 112
-    Top = 232
+    Left = 120
+    Top = 88
   end
   object dgEmployees: TDataGeneratorAdapter
     FieldDefs = <
@@ -106,15 +106,15 @@ object MDLBO: TMDLBO
     Active = True
     AutoPost = False
     Options = [loptAllowInsert, loptAllowDelete, loptAllowModify]
-    Left = 192
-    Top = 304
+    Left = 200
+    Top = 24
   end
   object absEmployees: TAdapterBindSource
     AutoActivate = True
     OnCreateAdapter = absEmployeesCreateAdapter
     Adapter = dgEmployees
     ScopeMappings = <>
-    Left = 184
-    Top = 232
+    Left = 200
+    Top = 88
   end
 end
