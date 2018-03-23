@@ -12,9 +12,13 @@ type
   TBranch = class;
   TEmployee = class;
 
-  CorpObjectBSWrapper = TObjectBindSourceAdapter<TCorp>;
-  BranchListBSWrapper = TListBindSourceAdapter<TBranch>;
-  EmployeeListBSWrapper = TListBindSourceAdapter<TEmployee>;
+  { These TypeDefs accomplish two things:
+    1. They eliminate the need to key the cumbersome generic notation every time the type is used
+    2. They provide meaningful names in place of confusing names used by Live Bindings }
+
+  CorpObjectBSWrapper = TObjectBindSourceAdapter<TCorp>;     // the corporate object wrapper
+  BranchListBSWrapper = TListBindSourceAdapter<TBranch>;     // the branch object list wrapper
+  EmployeeListBSWrapper = TListBindSourceAdapter<TEmployee>; // the employee object list wrapper
 
   TCorp = class(TObject)
   strict private
@@ -61,7 +65,7 @@ type
     property CorpMainPhone: String
       read FCorpMainPhone
       write SetCorpMainPhone;
-    property CorpBranches: TObjectList<TBranch>
+    property CorpBranches: TObjectList<TBranch>  // the TCorp instance contains the list of branches
       read FCorpBranches
       write SetCorpBranches;
   end;
@@ -118,7 +122,7 @@ type
       write SetBranchMainPhone;
     property BranchFullAddress: String
       read GetBranchFullAddress;
-    property BranchEmployees: TObjectList<TEmployee>
+    property BranchEmployees: TObjectList<TEmployee>   // each TBranch instance contains its own list of TEmployee objects
       read FBranchEmployees
       write SetBranchEmployees;
   end;
@@ -161,6 +165,8 @@ implementation
 
 { TCorp }
 
+{ The TCorp instance contains the "root" information for the data }
+
 constructor TCorp.Create(
   const ACorpName: String;
   const ACorpStreetAddress: String;
@@ -177,6 +183,9 @@ begin
   CorpCountry := ACorpCountry;
   CorpMainPhone := ACorpMainPhone;
   CorpBranches := TObjectList<TBranch>.Create;
+
+  { After the TCorp instance is initialized, the following creates three branches in the TBranch ObjectList}
+
   CorpBranches.Add(TBranch.Create('Cincinnati', '368 W 9th St', 'Cincinnati', 'OH', 'United States', '+1 387 555-5555'));
   CorpBranches.Add(TBranch.Create('Phoenix', '3009 W Indian School Rd', 'Phoenix', 'AZ', 'United States', '+1 986 555-5555'));
   CorpBranches.Add(TBranch.Create('Toronto', '38 Parliament St', 'Toronto', 'ON', 'Canada', '+1 298 555-5555'));
@@ -225,6 +234,8 @@ end;
 
 { TBranch }
 
+{ Each TBranch instance contains information unique to the branch }
+
 constructor TBranch.Create(
   const ABranchName: String;
   const ABranchStreetAddress: String;
@@ -241,6 +252,10 @@ begin
   BranchCountry := ABranchCountry;
   BranchMainPhone := ABranchMainPhone;
   BranchEmployees := TObjectList<TEmployee>.Create;
+
+  { Depending on the branch name, the specific employees for the branch are instantiated.
+    Each branch has a TObjectList<TEmployee> for that purpose.  }
+
   if BranchName.CompareText(BranchName, 'Cincinnati') = 0 then
     begin
       BranchEmployees.Add(TEmployee.Create('Pyotr', 'Ilyich', 'Tchaikovsky'));
@@ -264,10 +279,16 @@ begin
     end;
 end;
 
+{ This overloaded Create for Branches is used by the TNavBar component when the "Insert"
+  function is invoked. It simply populates a new Branch instance with some arbitrary values
+  that include a serial number so checking for a new instance is easier.  }
+
 constructor TBranch.Create;
 begin
   BranchSerial := BranchSerial + 1;
-  BranchName := Format('Auto Branch %d', [BranchSerial]);
+  BranchName := Format(
+    'Auto Branch %d',
+    [BranchSerial]);
   BranchStreetAddress := 'Auto Branch Address';
   BranchCity := 'Auto Branch City';
   BranchStateProvince := 'Auto Branch State/Province';
@@ -281,6 +302,10 @@ begin
   BranchEmployees.Free;
   inherited;
 end;
+
+{ The property BranchFullAddress is a read-only property that returns the full
+  address of the branch by constructing it from the individual parts that are
+  other properties of the branch. }
 
 function TBranch.GetBranchFullAddress: String;
 var
@@ -352,6 +377,8 @@ end;
 
 { TEmployee }
 
+{ The TEmployee instance contains information unique to each employee.  }
+
 constructor TEmployee.Create(
   const AEmpFirstName: String;
   const AEmpMiddleName: String;
@@ -363,18 +390,27 @@ begin
   EmpSurname := AEmpSurname;
 end;
 
+{ This overloaded version of Create is used by the TNavBar component to create a generic
+  TEmployee instance when the "Insert" button is clicked. It inserts arbitrary information
+  as well as a serial number to help determine that a new instance has been created.  }
+
 constructor TEmployee.Create;
 begin
   EmployeeSerial := EmployeeSerial + 1;
   EmpFirstName := 'First Name';
   EmpMiddleName := 'Middle Name';
-  EmpSurname := Format('Surname Serial %d', [EmployeeSerial]);
+  EmpSurname := Format(
+    'Surname Serial %d',
+    [EmployeeSerial]);
 end;
 
 destructor TEmployee.Destroy;
 begin
   inherited;
 end;
+
+{ EmpFullName is a read only property that returns the Employee's full name by
+  constructing it from the name properties in the instance. }
 
 function TEmployee.GetEmpFullName: String;
 var
