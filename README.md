@@ -10,7 +10,7 @@ After downloading (and unZipping the files if necessary) launch Delphi or RAD St
 ### User interface
 The program displays a screen with a banner at the top and two ListView components immediately beneath their corresonding TBindNavigator components. The left-hand ListView displays the current branch list for the hypothetical company shown in the top banner. The right-hand ListView displays the current employee roster for the currently selected branch.
 
-![Delphi LiveBindings With Objects UI](/docs/delphi livebindings with objects ui.png)
+![Delphi LiveBindings With Objects UI](/docs/delphilivebindingswithobjectsui.png)
 
 ### Using the program
 #### Navigation
