@@ -77,7 +77,7 @@ begin
   { Begin by creating the BranchWrapper and saving it in the current form }
 
   BranchWrapper := BranchListBSWrapper.Create( // create the Branch Wrapper
-    self,                                      // (a TypeDef for TListBindSourceAdapter<TBranch>)
+    self,                                      // (a Type Alias for TListBindSourceAdapter<TBranch>)
     Corp.CorpBranches,                         // The Wrapper points to TObjectList<TBranch>
     False);                                    // we keep responsibility for ownership
 
@@ -103,7 +103,7 @@ begin
   { Begin by creating the CorpWrapper and saving it in the current form }
 
   CorpWrapper := CorpObjectBSWrapper.Create( // create the Corp Wrapper
-    self,                                    // (a TypeDef for TObjectBindSourceAdapter<TCorp>)
+    self,                                    // (a Type Alias for TObjectBindSourceAdapter<TCorp>)
     Corp,                                    // The Wrapper points to TCorp
     False);                                  // we keep responsibility for ownership
 
@@ -122,8 +122,8 @@ begin
 
   { Begin by creating the EmployeeWrapper and saving it in the current form }
 
-  EmployeeWrapper := EmployeeListBSWrapper.Create(  // crate the Employee wrapper
-    self,                                           // (a TypeDef for TListBindSourceAdapter<TEmployee>)
+  EmployeeWrapper := EmployeeListBSWrapper.Create(  // create the Employee wrapper
+    self,                                           // (a Type Alias for TListBindSourceAdapter<TEmployee>)
     TBranch(BranchWrapper.Current).BranchEmployees, // the wrapper points to TObjectList<TEmployee>
     False);                                         // we keep responsibility for ownership
 
