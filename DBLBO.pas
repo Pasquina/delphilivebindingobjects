@@ -12,7 +12,7 @@ type
   TBranch = class;
   TEmployee = class;
 
-  { These TypeDefs accomplish two things:
+  { These Type Aliases accomplish two things:
     1. They eliminate the need to key the cumbersome generic notation every time the type is used
     2. They provide meaningful names in place of confusing names used by Live Bindings }
 
