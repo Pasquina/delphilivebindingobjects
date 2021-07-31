@@ -1,7 +1,7 @@
 object MDLBO: TMDLBO
   OldCreateOrder = False
-  Height = 174
-  Width = 281
+  Height = 258
+  Width = 386
   object dgCorp: TDataGeneratorAdapter
     FieldDefs = <
       item

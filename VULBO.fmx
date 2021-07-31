@@ -352,7 +352,7 @@ object VLBO: TVLBO
           Size.PlatformDefault = False
           TextSettings.Font.Size = 14.000000000000000000
           TextSettings.Font.StyleExt = {00070000000000000004000000}
-          Text = '11/1/2018 12:58:00 AM'
+          Text = '11/1/2021 12:58:00 AM'
           TabOrder = 1
         end
       end

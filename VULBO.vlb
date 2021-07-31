@@ -1,112 +1,117 @@
 ﻿[loCorpName]
-Coordinates=764,531,86,36
+Coordinates=10,752,75,33
 
 [loCorpCity]
-Coordinates=202,698,75,36
+Coordinates=253,752,66,33
 
 [loCorpMainPhone]
-Coordinates=701,698,117,36
+Coordinates=759,752,102,33
 
 [loCorpCountry]
-Coordinates=89,698,97,36
+Coordinates=646,752,87,33
 
 [gplCorp]
-Coordinates=944,531,60,36
+Coordinates=345,752,53,33
 
 [loCorpStreetAddress]
-Coordinates=829,698,134,36
+Coordinates=424,752,117,33
 
 [pnCorp]
-Coordinates=294,698,56,36
+Coordinates=915,531,50,33
 
 [loCorpStateProvince]
-Coordinates=478,698,133,36
+Coordinates=111,752,116,33
 
 [lbCorpName]
-Coordinates=1250,30,86,58
+Coordinates=374,343,75,51
 
 [Label6]
-Coordinates=404,531,53,58
+Coordinates=627,531,46,51
 
 [Label3]
-Coordinates=476,531,53,58
+Coordinates=483,531,46,51
 
 [lbCorpCountry]
-Coordinates=1670,210,97,58
+Coordinates=10,232,87,51
 
 [lbCorpStreetAddress]
-Coordinates=1210,110,134,58
+Coordinates=353,454,117,51
 
 [lbCorpMainPhone]
-Coordinates=1230,190,117,58
+Coordinates=360,121,102,51
 
 [Label2]
-Coordinates=620,531,53,58
+Coordinates=771,531,46,51
 
 [lbCorpCity]
-Coordinates=1650,10,75,58
+Coordinates=378,10,66,51
 
 [lbCorpStateProvince]
-Coordinates=1660,120,133,58
+Coordinates=353,232,116,51
 
 [Label1]
-Coordinates=332,531,53,58
+Coordinates=555,531,46,51
 
 [Label5]
-Coordinates=692,531,53,58
+Coordinates=843,531,46,51
 
 [Label4]
-Coordinates=548,531,53,58
+Coordinates=699,531,46,51
 Visible=True
 
 []
 Coordinates=861,50,116,177
 
 [MDLBO.dgCorp]
-Coordinates=962,60,105,36
+Coordinates=962,60,91,33
 Visible=False
 
 [BindingsList1]
-Coordinates=370,698,91,36
+Coordinates=968,752,82,33
 Visible=True
 
 [MDLBO.absCorp]
-Coordinates=1470,10,112,212
+Coordinates=177,169,96,177
 
 [MDLBO.dgBranches]
 Visible=False
-Coordinates=246,1,132,36
+Coordinates=246,1,114,33
 
 [Layout1]
-Coordinates=865,531,60,36
+Coordinates=567,752,53,33
 
 [Splitter1]
-Coordinates=620,698,62,36
+Coordinates=887,752,55,33
 
 [MDLBO.absBranches]
-Coordinates=1460,300,138,160
+Coordinates=169,558,119,141
 
 [lvBranches]
-Coordinates=1670,300,107,234
+Coordinates=368,531,89,195
 Visible=True
 
 [Layout2]
-Coordinates=10,698,60,36
+Coordinates=10,811,53,33
 
 [MDLBO.dgEmployees]
 Visible=False
-Coordinates=166,56,141,36
+Coordinates=166,56,121,33
 
 [MDLBO.absEmployees]
-Coordinates=1470,580,147,182
+Coordinates=496,56,127,159
 
 [lvEmployees]
-Coordinates=1680,590,107,168
+Coordinates=703,10,89,141
 Visible=True
 
+[Module Settings]
+ModelLayerNames=
+ActiveLayerNames=
+EditingLayerName=
+
 [navBranches]
-Coordinates=1250,330,89,58
+Coordinates=10,603,79,51
 
 [navEmloyee]
-Coordinates=1290,590,85,58
+Coordinates=710,211,74,51
 

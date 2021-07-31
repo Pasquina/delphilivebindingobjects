@@ -1,20 +1,24 @@
 ﻿[dgCorp]
-Coordinates=370,40,50,33
-Visible=True
+Coordinates=250,10,50,33
+Visible=False
 
 []
 Coordinates=0,0,82,33
 
 [absCorp]
-Coordinates=310,30,93,177
+Coordinates=250,10,93,177
 
 [dgBranches]
 Visible=False
 Coordinates=112,1,73,33
 
 [absBranches]
-Coordinates=0,0,93,123
+Coordinates=10,30,93,123
 
 [dgEmployees]
 Visible=False
+Coordinates=23,142,81,33
+
+[absEmployees]
+Coordinates=130,20,86,141
 
